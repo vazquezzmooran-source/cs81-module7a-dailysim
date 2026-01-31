@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Daily Schedule Simulator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fff7e6;
+      }
+      #output p {
+        margin: 4px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Daily Schedule Simulator</h1>
+    <p>Watch my very realistic (not really) day unfold.</p>
+
+    <div id="output"></div>
+
+    <script>
+      const output = document.getElementById("output");
+
+      function addEvent(timeLabel, message) {
+        const p = document.createElement("p");
+        p.textContent = timeLabel + " – " + message;
+        output.appendChild(p);
+      }
+
+      // Main schedule (you can tweak the text)
+      setTimeout(() => {
+        addEvent("7:00 AM", "Alarm goes off, I immediately hit snooze 😴");
+      }, 0);
+
+      setTimeout(() => {
+        addEvent("7:30 AM", "Actually wake up and check my phone 📱");
+      }, 2000);
+
+      setTimeout(() => {
+        addEvent("8:00 AM", "Breakfast + coffee, pretending to be awake ☕");
+      }, 4000);
+
+      setTimeout(() => {
+        addEvent("9:00 AM", "Start CS81 work and stare at JavaScript 🤯");
+      }, 6000);
+
+      setTimeout(() => {
+        addEvent("12:00 PM", "Lunch break and doom‑scrolling the internet 🍔");
+      }, 8000);
+
+      setTimeout(() => {
+        addEvent("3:00 PM", "More homework, fight the urge to nap 🧠");
+      }, 10000);
+
+      setTimeout(() => {
+        addEvent("8:00 PM", "Chill with YouTube / Netflix and snacks 🎬");
+      }, 12000);
+
+      // Funny twist: random surprise event
+      const surpriseEvents = [
+        "Spontaneous boba run that destroys my budget 🧋",
+        "Accidentally take a '5 minute' nap that lasts an hour 😴",
+        "Sudden urge to deep‑clean my room instead of studying 🧹",
+        "Fall into a TikTok/YouTube hole for 45 minutes 📺",
+        "Decide I absolutely need a snack right now 🍕"
+      ];
+
+      const randomIndex = Math.floor(Math.random() * surpriseEvents.length);
+      const randomDelay = 3000 + Math.floor(Math.random() * 9000); // 3–12 sec
+
+      setTimeout(() => {
+        addEvent("???", surpriseEvents[randomIndex] + " (surprise event!)");
+      }, randomDelay);
+    </script>
+  </body>
+</html>
 
